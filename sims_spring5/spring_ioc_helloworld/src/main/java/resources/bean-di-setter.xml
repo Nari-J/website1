@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--   依赖注入setter-->
+<!--    1.业务代码提供set方法-->
+<!--    2.xml配置-->
+<!--    配置bean标签子标签property-->
+<!--    name：成员变量名称-->
+<!--    ref：引用值 指向目标beanid-->
+<!--    value：本身值-->
+    <bean id="studentService" class="com.service.impl.StudentServiceImpl"
+          p:studentDao-ref="studentDao"
+          p:orderService-ref="orderService"
+          p:studentGrade="99"
+          p:studentName="jiran">
+<!--        <property name="studentDao" ref="studentDao"></property>-->
+<!--        <property name="orderService" ref="orderService"></property>-->
+<!--        <property name="studentGrade" value="99"></property>-->
+<!--        <property name="studentName" value="jiran"></property>-->
+
+        <property name="catg">
+            <list>
+                <value>数据结构</value>
+                <value>管理学</value>
+                <value>会计学</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="计算机软件技术"  value="98"></entry>
+                <entry key="c语言程序设计"  value="87"></entry>
+                <entry key="管理学"  value="88"></entry>
+            </map>
+
+        </property>
+    </bean>
+
+    <bean id="studentDao" class="com.dao.impl.StudentDaoImpl"></bean>
+
+    <bean id="orderService" class="com.service.impl.OrderServiceImpl"></bean>
+
+
+
+</beans>

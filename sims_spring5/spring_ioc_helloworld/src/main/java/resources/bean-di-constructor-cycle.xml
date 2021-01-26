@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="testServiceA" class="com.service.impl.TestServiceA">
+        <constructor-arg name="testServiceB" ref="testServiceB"></constructor-arg>
+    </bean>
+    <bean id="testServiceB" class="com.service.impl.TestServiceB">
+        <constructor-arg name="testServiceA" ref="testServiceA"></constructor-arg>
+    </bean>
+
+</beans>

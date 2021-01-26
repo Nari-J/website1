@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    构造器注入-->
+<!--    1.业务代码-->
+<!--    提供指定得带参构造器（constructor）-->
+<!--    2.xml配置-->
+<!--    配置constructor子标签-->
+<!--    index 参数位置 从0开始-->
+    <bean id="orderService2" class="com.service.impl.OrderServiceImpl2"
+
+          c:studentDao-ref="studentDao"
+          c:orderNO="S20200123"
+          c:price="2999.0">
+
+<!--        <constructor-arg name="studentDao" ref="studentDao"></constructor-arg>-->
+<!--        <constructor-arg index="0" value="S20200123"></constructor-arg>-->
+<!--        <constructor-arg name="price" value="2999.0"></constructor-arg>-->
+
+
+    </bean>
+
+
+    <bean id="studentDao" class="com.dao.impl.StudentDaoImpl"></bean>
+
+
+
+</beans>

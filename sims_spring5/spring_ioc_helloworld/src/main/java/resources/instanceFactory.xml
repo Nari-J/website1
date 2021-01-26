@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    实例化工厂-->
+<!--    1.以bean对象形式交给ioc-->
+<!--    2.再去配置orderService bean对象-->
+<!--    factory-bean：引用实例化工厂id-->
+<!--    factory-method: 返回对象方法名称-->
+    <bean id="instanceFactory" class="com.factory.InstanceFactory"></bean>
+    <bean id="orderService" factory-bean="instanceFactory" factory-method="createInstance"></bean>
+</beans>

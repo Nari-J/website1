@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class TestSpringHelloWorld {
     @Test
     public void test01(){
-        BeanFactory factory=new ClassPathXmlApplicationContext("beans.xml");
+        BeanFactory factory=new ClassPathXmlApplicationContext("resources/service.xml");
         service.IStudentService studentService= (service.IStudentService) factory.getBean("studentService");
 //        studentService=null;
         assertNotNull(studentService);
