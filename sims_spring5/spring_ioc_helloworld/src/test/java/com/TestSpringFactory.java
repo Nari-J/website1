@@ -15,6 +15,7 @@ public class TestSpringFactory {
         IOrderService orderService= (IOrderService) ac.getBean("orderService");
         assertNotNull(orderService);
         System.out.println(orderService);
+        System.out.println(ac.isPrototype("orderService"));
     }
 
 //    实例化工厂测试
