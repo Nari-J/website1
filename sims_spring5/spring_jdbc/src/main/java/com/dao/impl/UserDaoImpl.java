@@ -2,6 +2,7 @@ package com.dao.impl;
 import com.dao.IUserDao;
 import com.po.User;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
@@ -19,6 +20,7 @@ import java.util.List;
 @Repository
 public class UserDaoImpl implements IUserDao {
 
+//    数据的增删改查
     @Resource
     private JdbcTemplate jdbcTemplate;
 
@@ -92,6 +94,58 @@ public class UserDaoImpl implements IUserDao {
         return jdbcTemplate.queryForObject("select id,user_name,user_pwd from t_user where id=?",new Object[]{id},new UserRowMapper());
     }
 
+    @Override
+    public Integer saveBatch(List<User> users) {
+        return jdbcTemplate.batchUpdate("insert into t_user(user_name,user_pwd) value(?,?)", new BatchPreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement preparedStatement, int i) throws SQLException {
+                User user=users.get(i);
+                preparedStatement.setString(1,user.getUserName());
+                preparedStatement.setString(2,user.getUserPwd());
+            }
+            @Override
+            public int getBatchSize() {
+                return users.size();
+            }
+        }).length;
+    }
+
+
+    //    数据的批量处理
+
+    @Override
+    public Integer updateBatch(List<User> users) {
+        return  jdbcTemplate.batchUpdate("update t_user set user_name=?,user_pwd=? where id=?", new BatchPreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement preparedStatement, int i) throws SQLException {
+                User user=users.get(i);
+                preparedStatement.setString(1,user.getUserName());
+                preparedStatement.setString(2,user.getUserPwd());
+                preparedStatement.setInt(3,user.getId());
+            }
+            @Override
+            public int getBatchSize() {
+                return users.size();
+            }
+        }).length;
+    }
+
+    @Override
+    public Integer delBatch(List<Integer> ids) {
+        return jdbcTemplate.batchUpdate("delete from t_user where id=?", new BatchPreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement preparedStatement, int i) throws SQLException {
+                Integer id=ids.get(i);
+                preparedStatement.setInt(1,id);
+            }
+
+            @Override
+            public int getBatchSize() {
+                return ids.size();
+            }
+        }).length;
+    }
+
     public static class UserRowMapper implements RowMapper<User>{
         @Override
         public User mapRow(ResultSet resultSet, int i) throws SQLException {
@@ -102,6 +156,10 @@ public class UserDaoImpl implements IUserDao {
             return user;
         }
     }
+
+
+
+
 
 
 
