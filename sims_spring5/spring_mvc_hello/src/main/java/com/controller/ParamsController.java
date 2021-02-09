@@ -1,6 +1,7 @@
 package com.controller;
 
 
+import com.query.UserQuery;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,5 +42,18 @@ public class ParamsController {
             System.out.println("id-->"+id);
         }
     }
+
+//    参数类型与javaBean属性名
+//    map['xxx']=xxx
+//    http://localhost:8080/p05.do?id=20&userName=jiran&nicks=a&nicks=b
+    @RequestMapping("p05")
+    public void p05(UserQuery userQuery){
+
+        userQuery.getNicks().forEach(s->{
+            System.out.println(s);
+        });
+        System.out.println(userQuery);
+    }
+
 
 }

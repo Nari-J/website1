@@ -20,6 +20,7 @@ public class HelloController {
         mv.setViewName("hello");
 //        设置模型数据
         mv.addObject("hello","hello SpringMvc");
+        System.out.println("执行hello");
         return mv;
     }
 
