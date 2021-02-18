@@ -7,5 +7,5 @@ import lombok.Data;
 public class ResultModel {
     private Integer code=200;
     private String msg="success";
-    private Object result;
+    private UserModel result;
 }

@@ -1,4 +1,1 @@
-TestJdbcTemplate02.class
-com\dao\impl\UserDaoImplTest.class
-com\TestJdbcTemplate03.class
-TestJdbcTemplate.class
+com\dao\DaoTest1.class
