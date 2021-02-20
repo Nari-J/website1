@@ -54,6 +54,7 @@ public class UserServiceImpl implements IUserService {
         userModel.setId(user.getId());
         resultModel.setResult(userModel);
         resultModel.setCode(200);
+
         return resultModel;
     }
 
