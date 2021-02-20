@@ -11,10 +11,10 @@
     <title>result</title>
 </head>
 <body>
-<h2>错误代码：${code}</h2>
+<h2>code:${code}</h2>
 <h2>${msg}</h2>
-<form action="sin" method="get">
-    <input type="submit" value="back">
+<form action="index" method="get">
+    <input type="submit" value="index">
 </form>
 </body>
 </html>

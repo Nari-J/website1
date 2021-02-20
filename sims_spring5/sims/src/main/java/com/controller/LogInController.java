@@ -1,10 +1,5 @@
 package com.controller;
-//import com.dao.IUserDao;
-import com.dao.IUserDao;
 import com.model.ResultModel;
-import com.po.User;
-//import com.service.IUserService;
-//import com.service.IUserService;
 import com.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +19,9 @@ public class LogInController {
         return mv;
     }
     @RequestMapping(value = {"teacher/sin"}, method =RequestMethod.GET)
-    public ModelAndView signIn() {
+    public ModelAndView signIn(String msg) {
         ModelAndView mv = new ModelAndView();
+
         mv.setViewName("login/sin");
         return mv;
     }
@@ -45,6 +41,7 @@ public class LogInController {
 //        设置视图
         ResultModel rm = userServiceImpl.signIn(request.getParameter("user_name"), request.getParameter("user_pwd")) ;
         if (rm.getCode() == 200) {
+            request.getSession().setAttribute("user",rm.getResult());
             mv.setViewName("login/welcome");
             mv.addObject("userName", rm.getResult().getUserName());
         } else {
