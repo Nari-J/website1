@@ -16,5 +16,8 @@
 <form action="index" method="get">
     <input type="submit" value="index">
 </form>
+<form action="editLesson?id=${"id"}" method="get">
+    <input type="submit" value="add place and time for this lesson">
+</form>
 </body>
 </html>

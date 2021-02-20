@@ -1,8 +1,9 @@
 package com.service.impl;
 
 import com.dao.ILessonDao;
-import com.model.ResultModel;
+import com.model.LessonResultModel;
 import com.po.lesson.Lesson;
+import com.po.lesson.LessonInfo;
 import com.service.ILessonService;
 import org.springframework.stereotype.Service;
 
@@ -15,27 +16,37 @@ public class LessonServiceImpl implements ILessonService {
     @Resource
     private ILessonDao lessonDao;
     @Override
-    public ResultModel createLesson(Lesson lesson) {
+    public LessonResultModel createLesson(Lesson lesson) {
 
-        ResultModel rm=new ResultModel();
-        Lesson sameLesson=lessonDao.queryLesson(lesson);
+        LessonResultModel rm=new LessonResultModel();
+        Integer id=lessonDao.queryLesson(lesson);
 
 
-        if (sameLesson.getLessonName()!=null) {
+        if (id!=null) {
             rm.setCode(300);
             rm.setMsg("课程已存在！");
         } else {
-            Integer i=lessonDao.createLesson(lesson);
 
-            if(i==1){
-                rm.setCode(200);
-                rm.setMsg("创建成功！");
-
-            }else{
-                rm.setCode(301);
-                rm.setMsg("创建失败！");
-            }
+            lessonDao.createLesson(lesson);
+            id=lessonDao.queryLesson(lesson);
+            rm.setResult(id);
+            rm.setCode(200);
+            rm.setMsg("创建成功！");
         }
         return rm;
     }
+
+    @Override
+    public void editLesson(LessonInfo lessonInfo) {
+
+        for(int i=lessonInfo.getStartWeek();i<=lessonInfo.getEndWeek();i++){
+            for(int j=lessonInfo.getStartNum();j<=lessonInfo.getEndNum();j++){
+                lessonInfo.setWeek(i);
+                lessonInfo.setNum(j);
+                lessonDao.addLessonInfo(lessonInfo);
+            }
+        }
+
+    }
+
 }

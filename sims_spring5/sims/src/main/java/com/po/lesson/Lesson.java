@@ -8,6 +8,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Lesson {
+    private Integer id;
     private String LessonName;
     private String teacherName1;
     private String teacherName2;

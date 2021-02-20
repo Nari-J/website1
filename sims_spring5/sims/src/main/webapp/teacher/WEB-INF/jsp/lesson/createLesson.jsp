@@ -13,7 +13,7 @@
 <body>
 <h2>create a lesson</h2>
 <ul>
-    <form action="LessonInfo" method="post">
+    <form action="createLesson" method="post">
         lesson name: <input type="text" name="lessonName" ><br>
         teachers' name:<input type="text" name="teaName1"><input type="text" name="teaName2"><input type="text" name="teaName3"><input type="text" name="teaName4"><br>
         <input type="submit" value="Submit">

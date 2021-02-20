@@ -1,5 +1,5 @@
 package com.controller;
-import com.model.ResultModel;
+import com.model.UserResultModel;
 import com.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +39,7 @@ public class LogInController {
     public ModelAndView checkUser(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
 //        设置视图
-        ResultModel rm = userServiceImpl.signIn(request.getParameter("user_name"), request.getParameter("user_pwd")) ;
+        UserResultModel rm = userServiceImpl.signIn(request.getParameter("user_name"), request.getParameter("user_pwd")) ;
         if (rm.getCode() == 200) {
             request.getSession().setAttribute("user",rm.getResult());
             mv.setViewName("login/welcome");
@@ -58,7 +58,7 @@ public class LogInController {
         ModelAndView mv = new ModelAndView();
 //        设置视图
 
-        ResultModel rm = userServiceImpl.signUp(request.getParameter("user_name"), request.getParameter("user_pwd"), request.getParameter("user_pwd2")) ;
+        UserResultModel rm = userServiceImpl.signUp(request.getParameter("user_name"), request.getParameter("user_pwd"), request.getParameter("user_pwd2")) ;
 
         if (rm.getCode()==200) {
             mv.setViewName("login/welcome");
