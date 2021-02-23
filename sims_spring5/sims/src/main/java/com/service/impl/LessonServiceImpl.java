@@ -29,6 +29,7 @@ public class LessonServiceImpl implements ILessonService {
 
             lessonDao.createLesson(lesson);
             id=lessonDao.queryLesson(lesson);
+            System.out.println(id);
             rm.setResult(id);
             rm.setCode(200);
             rm.setMsg("创建成功！");

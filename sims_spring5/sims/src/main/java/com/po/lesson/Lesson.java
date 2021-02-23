@@ -10,10 +10,10 @@ import java.util.List;
 public class Lesson {
     private Integer id;
     private String LessonName;
-    private String teacherName1;
-    private String teacherName2;
-    private String teacherName3;
-    private String teacherName4;
+    private String teacherName1="";
+    private String teacherName2="";
+    private String teacherName3="";
+    private String teacherName4="";
 
 
 }

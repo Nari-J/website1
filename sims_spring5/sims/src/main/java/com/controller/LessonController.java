@@ -43,14 +43,17 @@ public class LessonController {
         mv.addObject("code", rm.getCode());
         mv.addObject("msg", rm.getMsg());
         mv.addObject("id",rm.getResult());
+//        System.out.println(rm.getResult());
         return mv;
     }
     @RequestMapping(value ="teacher/editLesson",method = RequestMethod.GET)
     public ModelAndView editLesson(Integer id){
         ModelAndView mv=new ModelAndView();
 
+        System.out.println(id);
         mv.setViewName("lesson/editLesson");
         Lesson lesson=lessonDao.queryLessonById(id);
+        System.out.println(lesson);
         mv.addObject("lessonName",lesson.getLessonName());
         mv.addObject("tea1",lesson.getTeacherName1());
         mv.addObject("tea2",lesson.getTeacherName2());
@@ -64,6 +67,8 @@ public class LessonController {
         mv.setViewName("lesson/result");
 
         LessonInfo lessonInfo=new LessonInfo();
+        System.out.println(request.getParameter("building"));
+        System.out.println(Integer.parseInt(request.getParameter("room")));
         lessonInfo.setBuilding(request.getParameter("building"));
         lessonInfo.setRoom(Integer.parseInt(request.getParameter("room")));
         lessonInfo.setStartWeek(Integer.parseInt(request.getParameter("startWeek")));
@@ -71,7 +76,9 @@ public class LessonController {
         lessonInfo.setDay(Integer.parseInt(request.getParameter("day")));
         lessonInfo.setStartNum(Integer.parseInt(request.getParameter("startNum")));
         lessonInfo.setEndNum(Integer.parseInt(request.getParameter("endNum")));
+//        lessonInfo.setId(Integer.parseInt(request.getParameter("id")));
 
+        System.out.println(lessonInfo);
         lessonService.editLesson(lessonInfo);
 
         return mv;
