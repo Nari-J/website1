@@ -12,11 +12,13 @@
 </head>
 <body>
 <h2>code:${code}</h2>
-<h2>${msg}</h2>
+<h2>${msg}${id}</h2>
+
 <form action="index" method="get">
     <input type="submit" value="index">
 </form>
-<form action="editLesson?id=${"id"}" method="get">
+<form action="editLesson" method="get">
+    <input type="hidden" value="${id}" name="id">
     <input type="submit" value="add place and time for this lesson">
 </form>
 </body>

@@ -17,9 +17,9 @@
 <%--    <option value="gaodai">gaodai</option>--%>
 <%--    <option value="dajiji">dajiji</option>--%>
 <%--</select>--%>
-<h2>edit ${"lessonName"}:${"tea1"},${"tea2"},${"tea3"},${"tea4"}</h2>
+<h2>edit ${lessonName}:${tea1},${tea2},${tea3},${tea4}</h2>
 <form action="editLesson" method="post">
-add place:<select id='building'>
+add place:<select name='building'>
     <option value='-1'>请选择上课地点</option>
     <option value="1j">教一</option>
     <option value="2j">教二</option>
@@ -29,7 +29,7 @@ add place:<select id='building'>
 <input type="number" name="room"value="教室号如：204" ><br>
 add time:第<input type="number" name="startWeek"value="" >周到第<input type="number" name="endWeek"value="" >周，
 星期<input type="number" name="day">，第<input type="number" name="startNum">节到第<input type="number" name="startNum">节<br>
-<input type="hidden" value="${"id"}" name="id">
+<%--<input type="hidden" value="${id}" name="id">--%>
     <input type="submit" value="Submit">
 </form>
 
