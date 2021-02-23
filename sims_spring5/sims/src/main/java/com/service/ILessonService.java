@@ -1,8 +1,10 @@
 package com.service;
 
-import com.model.ResultModel;
+import com.model.LessonResultModel;
 import com.po.lesson.Lesson;
+import com.po.lesson.LessonInfo;
 
 public interface ILessonService {
-    public ResultModel createLesson(Lesson lesson);
+    public LessonResultModel createLesson(Lesson lesson);
+    public void editLesson(LessonInfo lessonInfo);
 }
