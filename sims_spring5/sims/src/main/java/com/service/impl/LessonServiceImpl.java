@@ -8,6 +8,7 @@ import com.service.ILessonService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class LessonServiceImpl implements ILessonService {
@@ -49,5 +50,10 @@ public class LessonServiceImpl implements ILessonService {
         }
 
     }
+    @Override
+    public List<Lesson> listLesson() {
+        return lessonDao.listLesson();
+    }
+
 
 }

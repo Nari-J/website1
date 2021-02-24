@@ -9,13 +9,16 @@ import com.service.ILessonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class LessonController {
+
 
     @RequestMapping(value = "teacher/createLesson",method =RequestMethod.GET)
     public ModelAndView createLesson(){
@@ -83,6 +86,18 @@ public class LessonController {
 
         return mv;
     }
+
+    @RequestMapping(value = "teacher/listLesson")
+    public ModelAndView listLesson(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("lesson/createLesson");
+        return mv;
+    }
+    @RequestMapping(value = "teacher/listLessons")
+    @ResponseBody
+    public List<Lesson> listLessons(){
+        return lessonService.listLesson();
+     }
 
 
 }
