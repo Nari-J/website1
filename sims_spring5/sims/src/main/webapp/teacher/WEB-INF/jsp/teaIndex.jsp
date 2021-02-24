@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>index</title>
-
+<%--    <link rel="stylesheet" type="text/css" href="index.css"/>--%>
     <style>
         header {
             background-color: #6699CC;
@@ -37,7 +37,8 @@
             text-align:center;
             padding:5px;
         }
-        .button {
+        .button
+        {
             /*margin-top: 10px;*/
             width: 100%;
             background-color: #66CCFF; /* Green */
@@ -49,7 +50,6 @@
             display: inline-block;
             font-size: 16px;
             float: left;
-
         }
         .button:hover {
             background-color:#6699CC; /* Green */
@@ -80,6 +80,9 @@
     </form>
     <form action="/teacher/editLesson" method="get">
         <input type="submit" value="edit lesson" class="button">
+    </form>
+    <form action="/teacher/fileUpload" method="get">
+        <input type="submit" value="file upload" class="button">
     </form>
 </nav>
 <footer>

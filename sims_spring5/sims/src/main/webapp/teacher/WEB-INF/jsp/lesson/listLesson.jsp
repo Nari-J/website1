@@ -20,10 +20,10 @@
         }
         header
         {
-        background-color:#6699CC;
-        color:white;
-        text-align:center;
-        padding:5px;
+            background-color:#6699CC;
+            color:white;
+            text-align:center;
+            padding:5px;
         }
         .button1 {
             margin-left: 60px;
@@ -87,7 +87,7 @@
 </head>
 <body>
 <header>
-    <h1>index for teacher</h1>
+    <h1>list lessons</h1>
 </header>
 <nav>
     <form action="/teacher/sin" method="get">
@@ -98,11 +98,11 @@
     </form>
 
     <form action="/teacher/createLesson" method="get">
-        <input type="submit" value="create lesson" class="buttonHover"/>
+        <input type="submit" value="create lesson" class="button"/>
     </form>
 
-    <form action="/teacher/list" method="get">
-        <input type="submit" value="list students" class="button"/>
+    <form action="/teacher/listLesson" method="get">
+        <input type="submit" value="list students" class="buttonHover"/>
     </form>
     <form action="/teacher/editLesson" method="get">
         <input type="submit" value="edit lesson" class="button"/>
@@ -111,16 +111,10 @@
         <input type="submit" value="file upload" class="button"/>
     </form>
 </nav>
-<section >
-    <h2 class="text1">create a lesson</h2>
-    <form action="createLesson" method="post">
-        <input type="text" name="lessonName" class="input1" placeholder="lesson name"/><br>
-        <input type="text" name="teaName1" class="input1" placeholder="teacher1"/><br>
-        <input type="text" name="teaName2" class="input1" placeholder="teacher2"/><br>
-        <input type="text" name="teaName3" class="input1" placeholder="teacher3"/><br>
-        <input type="text" name="teaName4" class="input1" placeholder="teacher4"/><br>
-        <input type="submit" value="Submit" class="button1"/>
-    </form>
+<section>
+
+
+
 </section>
 <footer>
     CopyRight 2021 JiRan

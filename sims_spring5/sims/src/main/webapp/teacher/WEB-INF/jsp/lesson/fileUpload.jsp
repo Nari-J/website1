@@ -1,29 +1,33 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2021/2/18
-  Time: 21:58
+  Date: 2021/2/24
+  Time: 17:41
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>create lesson</title>
+    <title>文件上传</title>
     <link rel="stylesheet" type="text/css" href="index.css"/>
     <style>
-        section {
-            width:500px;
-            float:left;
-            padding:10px;
-            margin:0px auto;
-            align-content: center;
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
         }
+        input[type="number"]{
+            -moz-appearance: textfield;
+        }
+        /*去除箭头*/
+
+
+
         header
         {
-        background-color:#6699CC;
-        color:white;
-        text-align:center;
-        padding:5px;
+            background-color:#6699CC;
+            color:white;
+            text-align:center;
+            padding:5px;
         }
         .button1 {
             margin-left: 60px;
@@ -75,19 +79,35 @@
             color: #336699;
         }
         .input1{
+
+            -moz-appearance:textfield;
             border: 1px solid #ccc;
-            font-size: 16px;
+            font-size: 8px;
             margin-top: 10px;
             padding: 10px 25px;
-            border-radius: 10px;
+            border-radius: 2px;
+
+            height: 30px;
+            width: 100px;
+            text-align: center;
 
         }
+        section {
+            width:500px;
+            float:left;
+            padding:10px;
+            margin:0px auto;
+            align-content: center;
+        }
+
     </style>
+
 
 </head>
 <body>
+
 <header>
-    <h1>index for teacher</h1>
+    <h1>文件上传</h1>
 </header>
 <nav>
     <form action="/teacher/sin" method="get">
@@ -98,7 +118,7 @@
     </form>
 
     <form action="/teacher/createLesson" method="get">
-        <input type="submit" value="create lesson" class="buttonHover"/>
+        <input type="submit" value="create lesson" class="button"/>
     </form>
 
     <form action="/teacher/list" method="get">
@@ -108,24 +128,29 @@
         <input type="submit" value="edit lesson" class="button"/>
     </form>
     <form action="/teacher/fileUpload" method="get">
-        <input type="submit" value="file upload" class="button"/>
+        <input type="submit" value="file upload" class="buttonHover"/>
     </form>
 </nav>
-<section >
-    <h2 class="text1">create a lesson</h2>
-    <form action="createLesson" method="post">
-        <input type="text" name="lessonName" class="input1" placeholder="lesson name"/><br>
-        <input type="text" name="teaName1" class="input1" placeholder="teacher1"/><br>
-        <input type="text" name="teaName2" class="input1" placeholder="teacher2"/><br>
-        <input type="text" name="teaName3" class="input1" placeholder="teacher3"/><br>
-        <input type="text" name="teaName4" class="input1" placeholder="teacher4"/><br>
-        <input type="submit" value="Submit" class="button1"/>
+<section>
+    <form method="post" action="lesson/fileUpload" method="post" enctype="multipart/form-data">
+        <p class="text1">选择一个文件:</p>
+        <input type="file" name="file" />
+        <br/><br/>
+        <input type="submit" value="上传" class="button1"/>
     </form>
+
 </section>
 <footer>
     CopyRight 2021 JiRan
 </footer>
 
+
+
+
+
+
+
+<h1></h1>
 
 </body>
 </html>
