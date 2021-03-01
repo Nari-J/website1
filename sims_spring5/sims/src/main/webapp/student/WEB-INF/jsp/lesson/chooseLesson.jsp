@@ -1,15 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2021/2/18
-  Time: 11:28
+  Date: 2021/3/1
+  Time: 14:23
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>index</title>
-<%--    <link rel="stylesheet" type="text/css" href="index.css"/>--%>
+    <title>choose lesson</title>
     <style>
         header {
             background-color: #6699CC;
@@ -37,8 +36,7 @@
             text-align:center;
             padding:5px;
         }
-        .button
-        {
+        .button {
             /*margin-top: 10px;*/
             width: 100%;
             background-color: #66CCFF; /* Green */
@@ -57,39 +55,52 @@
         .button_login{
             background-color:#6699CC;
         }
+        .buttonHover{
+            background-color:#6699CC;
+            /*margin-top: 10px;*/
+            width: 100%;
+            border: none;
+            color: #ffffff;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            float: left;
+        }
     </style>
 </head>
+
+
+
 <body>
+
 <header>
-    <h1>index for teacher</h1>
+    <h1>choose lesson</h1>
 </header>
 <nav>
-    <form action="/teacher/sin" method="get">
+    <form action="/student/sin" method="get">
         <input type="submit" value="sign in" class="button">
     </form>
-    <form action="/teacher/sup" method="get">
+    <form action="/student/sup" method="get">
         <input type="submit" value="sign up" class="button">
     </form>
 
-    <form action="/teacher/createLesson" method="get">
-        <input type="submit" value="create lesson" class="button">
+    <form action="/student/chooseLesson" method="get">
+        <input type="submit" value="choose lesson" class="buttonHover">
     </form>
-
-    <form action="/teacher/listLesson" method="get">
-        <input type="submit" value="list lessons" class="button">
-    </form>
-    <form action="/teacher/editLesson" method="get">
-        <input type="submit" value="edit lesson" class="button">
-    </form>
-    <form action="/teacher/fileUpload" method="get">
-        <input type="submit" value="file upload" class="button">
-    </form>
-
+    <form action="/student/queryLesson" method="get">
+        <input type="submit" value="query lesson" class="button">
     </form>
 </nav>
 <footer>
     CopyRight 2021 JiRan
 </footer>
+
+
+
+
+
 
 
 

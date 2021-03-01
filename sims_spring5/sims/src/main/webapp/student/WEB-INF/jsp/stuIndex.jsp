@@ -56,6 +56,19 @@
         .button_login{
             background-color:#6699CC;
         }
+        .buttonHover{
+            background-color:#6699CC;
+            /*margin-top: 10px;*/
+            width: 100%;
+            border: none;
+            color: #ffffff;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            float: left;
+        }
     </style>
 </head>
 <body>
@@ -70,6 +83,12 @@
         <input type="submit" value="sign up" class="button">
     </form>
 
+    <form action="/student/chooseLesson" method="get">
+        <input type="submit" value="choose lesson" class="button">
+    </form>
+    <form action="/student/queryLesson" method="get">
+        <input type="submit" value="query lesson" class="button">
+    </form>
 </nav>
 <footer>
     CopyRight 2021 JiRan
