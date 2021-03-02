@@ -1,29 +1,24 @@
-**已完成部分：**
+**项目结构解释：**
 ---
-### ioc
-- bean实例化
-- 三种注入方式
-- 自动化装配
-- 扫描器
-- **ioc用户登录应用**
-### AOP
-- JDK动态代理
-- CGLIB动态代理
-- AOP动态代理
-### JDBC
-- 连接数据库
-- 数据库增删查改
-- 批量增删改查
-### 事物控制
-- 
-### MVC
-- 环境搭建与测试
-- 地址映射
-- model数据
-- 参数绑定
-### MVC
-- 转发与重定向
-- json数据交互
-- 拦截器
-- 单文件上传
+#### sims_spring 下有8个子模块:
+- spring_ioc_helloworld
+- spring_ioc_annotation
+- annotation_develop
+- spring_dyn_proxy
+- aop_proxy
+- user_login
+- spring_jdbc
+- spring_mvc_hello
+- **sims**
+#### 前7个是在b站学习的过程中练习的代码，参考视频链接：
+#### https://b23.tv/3m3GKw
+---
+### SIMS是我综合学习内容，采用spring框架构建的一个简单系统，一个简单的说明可以在sims文件夹下的readme中找到。
+
+
+
+
+
+
+
 
