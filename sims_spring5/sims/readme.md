@@ -18,6 +18,7 @@
 #### http://localhost:8080/teacher/index 即可进入教师端主页
 #### http://localhost:8080/student/index 即可进入学生端主页
 ---
-#### editLesson 暂时无法使用，因为未传给课程id，不传给课程id的原因是未使用ajax制作一个listLesson的下拉选单选择课程提交，目前只能在创建课程后的result页面点击editLesson进行进一步编辑。
-
+#### 使用系统注意事项：
+- editLesson 暂时无法使用，因为未传给课程id，不传给课程id的原因是未使用ajax制作一个listLesson的下拉选单选择课程提交，目前只能在创建课程后的result页面点击editLesson进行进一步编辑。
+- 因为缺少统一的设计与时间不足，很多名称包括uri并不是很恰当，结构也较为混乱，如有建议请通过git提出或者直接微信联系，非常感想！
 
